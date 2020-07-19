@@ -25,3 +25,10 @@ GROUP BY category;
 *************************
 #using GROUP BY with column reference numbers
 SELECT price,SUM(downloads) FROM fake_apps GROUP BY 1;
+*****************************
+SELECT category, 
+   price,
+   AVG(downloads)
+FROM fake_apps
+GROUP BY 1, 2;
+*******************************
