@@ -10,6 +10,16 @@ LEFT JOIN purchase AS 'p'
 ON p.user_id = c.user_id
 LIMIT 50;
 
+SELECT DISTINCT b.browse_date, 
+b.user_id, c.user_id IS NOT NULL AS 'is_checkout', 
+p.user_id IS NOT NULL AS 'is_purchase' 
+ FROM browse AS 'b'
+ LEFT JOIN checkout AS 'c'
+ ON b.user_id = c.user_id
+ LEFT JOIN purchase AS 'p'
+ ON c.user_id = p.user_id
+ LIMIT 50;
+ 
 WITH funnels AS (
   SELECT DISTINCT b.browse_date,
      b.user_id,
