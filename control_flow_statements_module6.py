@@ -66,11 +66,12 @@ def grade_converter(gpa):
     return 'F'
     
 def raises_value_error():
-  try:
-    raise ValueError
-  except ValueError:
-    print("You raised a ValueError")
-raises_value_error()
+  raise ValueError
+  
+try:
+  raises_value_error()
+except ValueError:
+  print("You raised a ValueError!")
 
 def applicant_selector(gpa,ps_score,ec_count):
   if gpa>=3.0 and ps_score>=90 and ec_count>=3:
